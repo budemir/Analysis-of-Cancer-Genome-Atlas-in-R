@@ -42,8 +42,6 @@ GDCdownload(query = query_TCGA)
 tcga_data = GDCprepare(query_TCGA)
 dim(tcga_data)
 
-In R (and other programming languages) you can often
-chain functions to save time and space
 colnames(colData(tcga_data))
 
 table(tcga_data@colData$vital_status)
@@ -56,8 +54,6 @@ dim(assay(tcga_data)) # gene expression matrices.
 head(assay(tcga_data)[,1:10]) # expression of first 6 genes and first 10 samples
 head(rowData(tcga_data)) # ensembl id and gene id of the first 6 genes.
 
-Save the data as a file, if you need it later, you can just load this file
-instead of having to run the whole pipeline again
 saveRDS(object = tcga_data,
 file = "tcga_data.RDS",
 compress = FALSE)
